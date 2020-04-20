@@ -13,7 +13,7 @@ public class WordParser implements Handler, Parser, Composite {
 
     public WordParser(LetterParser child) {
         this.child = child;
-            }
+    }
 
     public String handleRequest() {
         return null;

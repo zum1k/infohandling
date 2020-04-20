@@ -4,7 +4,6 @@ import com.epam.training.smuglyakov.infohandling.parser.Composite;
 import com.epam.training.smuglyakov.infohandling.parser.Handler;
 import com.epam.training.smuglyakov.infohandling.parser.Parser;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class TextParser implements Handler, Parser, Composite {
 
     public TextParser(ParagraphParser child) {
         this.child = child;
-            }
+    }
 
     public void add(Parser parser) {
         paragraphs.add(parser);

@@ -18,6 +18,7 @@ public class ParagraphParser implements Handler, Parser, Composite {
     public String handleRequest() {
         return null;
     }
+
     public List<String> parse() {
         return null;
     }

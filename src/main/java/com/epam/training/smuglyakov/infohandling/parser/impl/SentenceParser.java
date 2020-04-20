@@ -14,7 +14,9 @@ public class SentenceParser implements Handler, Parser, Composite {
     public SentenceParser(WordParser child) {
         this.child = child;
     }
-    public SentenceParser(){}
+
+    public SentenceParser() {
+    }
 
     public String handleRequest() {
         return null;
