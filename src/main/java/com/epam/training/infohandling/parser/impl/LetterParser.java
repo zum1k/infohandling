@@ -19,4 +19,8 @@ public class LetterParser implements Handler, Parser {
     public List<String> parse() {
         return null;
     }
+
+    public String getValue() {
+        return value;
+    }
 }
