@@ -1,11 +1,12 @@
-package com.epam.training.smuglyakov.infohandling.parser.impl;
+package com.epam.training.infohandling.parser.impl;
 
-import com.epam.training.smuglyakov.infohandling.parser.Handler;
-import com.epam.training.smuglyakov.infohandling.parser.Parser;
+import com.epam.training.infohandling.parser.Handler;
+import com.epam.training.infohandling.parser.Parser;
 
 import java.util.List;
 
 public class LetterParser implements Handler, Parser {
+    private String value;
     private Parser child = null;
 
     public LetterParser() {

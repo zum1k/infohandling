@@ -1,4 +1,4 @@
-package com.epam.training.smuglyakov.infohandling.parser;
+package com.epam.training.infohandling.parser;
 
 import java.util.List;
 

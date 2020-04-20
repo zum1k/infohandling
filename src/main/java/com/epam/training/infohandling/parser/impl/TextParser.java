@@ -1,8 +1,8 @@
-package com.epam.training.smuglyakov.infohandling.parser.impl;
+package com.epam.training.infohandling.parser.impl;
 
-import com.epam.training.smuglyakov.infohandling.parser.Composite;
-import com.epam.training.smuglyakov.infohandling.parser.Handler;
-import com.epam.training.smuglyakov.infohandling.parser.Parser;
+import com.epam.training.infohandling.parser.Composite;
+import com.epam.training.infohandling.parser.Handler;
+import com.epam.training.infohandling.parser.Parser;
 
 import java.util.ArrayList;
 import java.util.List;
