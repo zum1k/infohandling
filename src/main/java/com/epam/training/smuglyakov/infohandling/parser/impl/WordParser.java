@@ -9,6 +9,11 @@ import java.util.List;
 public class WordParser implements Handler, Parser {
     private LetterParser child;
     private List<Parser> letters = new ArrayList<Parser>();
+
+    public WordParser(LetterParser child) {
+        this.child = child;
+            }
+
     public String handleRequest() {
         return null;
     }

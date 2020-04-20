@@ -10,6 +10,12 @@ import java.util.List;
 public class SentenceParser implements Handler, Parser, Action {
     private WordParser child;
     private List<Parser> words = new ArrayList<Parser>();
+
+    public SentenceParser(WordParser child) {
+        this.child = child;
+    }
+    public SentenceParser(){}
+
     public String handleRequest() {
         return null;
     }

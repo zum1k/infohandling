@@ -12,10 +12,9 @@ public class TextParser implements Handler, Parser, Action {
     private ParagraphParser child;
     private List<Parser> paragraphs = new ArrayList<Parser>();
 
-    public TextParser(ParagraphParser child, List<Parser> paragraphs) {
+    public TextParser(ParagraphParser child) {
         this.child = child;
-        this.paragraphs = paragraphs;
-    }
+            }
 
     public void add(Parser parser) {
         paragraphs.add(parser);

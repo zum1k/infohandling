@@ -10,6 +10,11 @@ import java.util.List;
 public class ParagraphParser implements Handler, Parser, Action {
     private SentenceParser child;
     private List<Parser> sentences = new ArrayList<Parser>();
+
+    public ParagraphParser(SentenceParser child) {
+        this.child = child;
+    }
+
     public String handleRequest() {
         return null;
     }
