@@ -1,13 +1,13 @@
 package com.epam.training.smuglyakov.infohandling.parser.impl;
 
-import com.epam.training.smuglyakov.infohandling.parser.Action;
+import com.epam.training.smuglyakov.infohandling.parser.Composite;
 import com.epam.training.smuglyakov.infohandling.parser.Handler;
 import com.epam.training.smuglyakov.infohandling.parser.Parser;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParagraphParser implements Handler, Parser, Action {
+public class ParagraphParser implements Handler, Parser, Composite {
     private SentenceParser child;
     private List<Parser> sentences = new ArrayList<Parser>();
 

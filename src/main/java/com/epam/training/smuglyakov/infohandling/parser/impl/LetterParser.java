@@ -15,8 +15,4 @@ public class LetterParser  implements Handler, Parser {
     public List<String> parse() {
         return null;
     }
-
-    public Parser getChild() {
-        return null;
-    }
 }
