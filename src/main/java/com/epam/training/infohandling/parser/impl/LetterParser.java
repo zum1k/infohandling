@@ -9,7 +9,8 @@ public class LetterParser implements Handler, Parser {
     private String value;
     private Parser child = null;
 
-    public LetterParser() {
+    public LetterParser(String value) {
+        this.value = value;
     }
 
     public String handleRequest() {
