@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TextParser implements Handler, Parser, Composite {
+
     private ParagraphParser child;
     private List<Parser> paragraphs = new ArrayList<Parser>();
 

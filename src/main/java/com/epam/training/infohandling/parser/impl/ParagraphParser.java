@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParagraphParser implements Handler, Parser, Composite {
+    private final static String PARAGRAPH_REGULAR = "...";
     private SentenceParser child;
     private List<Parser> sentences = new ArrayList<Parser>();
 

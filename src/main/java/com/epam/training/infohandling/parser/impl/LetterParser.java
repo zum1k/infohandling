@@ -6,6 +6,7 @@ import com.epam.training.infohandling.parser.Parser;
 import java.util.List;
 
 public class LetterParser implements Handler, Parser {
+    private final static String LETTER_REGULAR = "...";
     private String value;
     private Parser child = null;
 

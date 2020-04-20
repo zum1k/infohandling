@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WordParser implements Handler, Parser, Composite {
+    private final static String WORD_REGULAR = "...";
     private LetterParser child;
     private List<Parser> letters = new ArrayList<Parser>();
 

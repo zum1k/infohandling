@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SentenceParser implements Handler, Parser, Composite {
+    private final static String SENTENCE_REGULAR = "...";
     private WordParser child;
     private List<Parser> words = new ArrayList<Parser>();
 
