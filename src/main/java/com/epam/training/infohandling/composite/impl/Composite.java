@@ -13,6 +13,6 @@ public class Composite implements Component {
     }
 
     public List<Component> getComponents() {
-        return null;
+        return components;
     }
 }

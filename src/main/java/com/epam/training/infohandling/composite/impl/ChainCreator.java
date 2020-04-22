@@ -7,12 +7,15 @@ import com.epam.training.infohandling.composite.impl.parser.TextParser;
 import com.epam.training.infohandling.composite.impl.parser.WordParser;
 
 public class ChainCreator {
-    public ChainParser createChain(){
-        ChainParser wordParser = new WordParser(null);
+    public Composite createChain(String text) {
+        ChainParser charParser = new LetterLeaf(null);
+        ChainParser wordParser = new WordParser(charParser);
         ChainParser sentenceParser = new SentenceParser(wordParser);
         ChainParser paragraphParser = new ParagraphParser(sentenceParser);
         ChainParser textParser = new TextParser(paragraphParser);
-        return textParser;
-    };
 
+        Composite composite = new Composite();
+        composite.addComponent(textParser.parse(text));
+        return composite;
+    }
 }

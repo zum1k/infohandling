@@ -23,6 +23,7 @@ public class WordParser implements ChainParser {
                 letters.addComponent(symbols);
             }
             letters.addComponent(new LetterLeaf(letter.charAt(0)));
+            // ili punctuation
         }
         return letters;
     }
