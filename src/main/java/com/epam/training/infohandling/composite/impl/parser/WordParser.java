@@ -9,8 +9,8 @@ public class WordParser implements ChainParser {
     private final static String CHARACTER_REGULAR = "\\.";
     private ChainParser successor;
 
-    public WordParser(ChainParser child) {
-        this.successor = child;
+    public WordParser(ChainParser successor) {
+        this.successor = successor;
     }
 
     public Component parse(String text) {

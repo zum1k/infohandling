@@ -8,7 +8,7 @@ import java.util.List;
 public class LetterLeaf implements Component, ChainParser {
 
     private Character value;
-    private Component child = null;
+    private Component successor = null;
 
     public LetterLeaf(Character value) {
         this.value = value;

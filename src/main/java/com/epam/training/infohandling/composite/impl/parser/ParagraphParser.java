@@ -7,10 +7,10 @@ import com.epam.training.infohandling.composite.impl.Composite;
 
 public class ParagraphParser implements ChainParser {
     private final static String SENTENCE_REGULAR = "[.!?]+";
-    private ChainParser successor = null;
+    private ChainParser successor;
 
-    public ParagraphParser(ChainParser child) {
-        this.successor = child;
+    public ParagraphParser(ChainParser successor) {
+        this.successor = successor;
     }
 
     public Component parse(String text) {
