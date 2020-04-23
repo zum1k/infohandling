@@ -25,4 +25,7 @@ public class LetterLeaf implements TextComponent, TextParser {
     public TextComponent parse(String text) {
         return null;
     }
+    public Character getValue(){
+        return value;
+    }
 }
