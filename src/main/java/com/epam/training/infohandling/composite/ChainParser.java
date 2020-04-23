@@ -1,5 +1,5 @@
 package com.epam.training.infohandling.composite;
 
-public interface TextParser {
+public interface ChainParser {
     TextComponent parse(String text);
 }
