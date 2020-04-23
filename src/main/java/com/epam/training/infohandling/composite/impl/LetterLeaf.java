@@ -1,27 +1,28 @@
 package com.epam.training.infohandling.composite.impl;
 
 import com.epam.training.infohandling.composite.ChainParser;
-import com.epam.training.infohandling.composite.Component;
+import com.epam.training.infohandling.composite.TextComponent;
 
 import java.util.List;
 
-public class LetterLeaf implements Component, ChainParser {
+public class LetterLeaf implements TextComponent, ChainParser {
+    //dopisat
 
     private Character value;
-    private Component successor = null;
+    private TextComponent successor = null;
 
     public LetterLeaf(Character value) {
         this.value = value;
     }
 
-    public void addComponent(Component component) {
+    public void addComponent(TextComponent component) {
     }
 
-    public List<Component> getComponents() {
+    public List<TextComponent> getComponents() {
         return null;
     }
 
-    public Component parse(String text) {
+    public TextComponent parse(String text) {
         return null;
     }
 }

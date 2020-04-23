@@ -1,25 +1,25 @@
 package com.epam.training.infohandling.composite.impl.parser;
 
 import com.epam.training.infohandling.composite.ChainParser;
-import com.epam.training.infohandling.composite.Component;
-import com.epam.training.infohandling.composite.impl.Composite;
+import com.epam.training.infohandling.composite.TextComponent;
+import com.epam.training.infohandling.composite.impl.TextComposite;
 import com.epam.training.infohandling.composite.impl.LetterLeaf;
 
 public class WordParser implements ChainParser {
-    private final static String CHARACTER_REGULAR = "\\.";
+    private static final String CHARACTER_REGULAR = "\\.";
     private ChainParser successor;
 
     public WordParser(ChainParser successor) {
         this.successor = successor;
     }
 
-    public Component parse(String text) {
+    public TextComponent parse(String text) {
         String[] strings = text.split(CHARACTER_REGULAR);
-        Component letters = new Composite();
+        TextComponent letters = new TextComposite();
         ChainParser successor = this.successor;
         for (String letter : strings) {
             if (successor != null) {
-                Component symbols = successor.parse(letter);
+                TextComponent symbols = successor.parse(letter);
                 letters.addComponent(symbols);
             }
             letters.addComponent(new LetterLeaf(letter.charAt(0)));

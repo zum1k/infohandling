@@ -1,19 +1,19 @@
 package com.epam.training.infohandling.composite.impl;
 
-        import com.epam.training.infohandling.composite.Component;
+        import com.epam.training.infohandling.composite.TextComponent;
 
         import java.util.List;
 
-public class PunctuationLeaf implements Component {
+public class PunctuationLeaf implements TextComponent {
     //dopisat
     private Character punctuation;
     public PunctuationLeaf() {
     }
 
-    public void addComponent(Component component) {
+    public void addComponent(TextComponent component) {
     }
 
-    public List<Component> getComponents() {
+    public List<TextComponent> getComponents() {
         return null;
     }
 }

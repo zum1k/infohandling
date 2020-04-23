@@ -1,24 +1,24 @@
 package com.epam.training.infohandling.composite.impl.parser;
 
 import com.epam.training.infohandling.composite.ChainParser;
-import com.epam.training.infohandling.composite.Component;
-import com.epam.training.infohandling.composite.impl.Composite;
+import com.epam.training.infohandling.composite.TextComponent;
+import com.epam.training.infohandling.composite.impl.TextComposite;
 
 public class SentenceParser implements ChainParser {
-    private final static String WORD_REGULAR = "\\s+";
+    private static final String WORD_REGULAR = "\\s+";
     private ChainParser successor = null;
 
     public SentenceParser(ChainParser successor) {
         this.successor = successor;
     }
 
-    public Component parse(String text) {
+    public TextComponent parse(String text) {
         String[] strings = text.split(WORD_REGULAR);
-        Component words = new Composite();
+        TextComponent words = new TextComposite();
         ChainParser successor = this.successor;
         for (String word : strings) {
             if(successor!=null) {
-                Component letters = successor.parse(word);
+                TextComponent letters = successor.parse(word);
                 words.addComponent(letters);
             }
         }
