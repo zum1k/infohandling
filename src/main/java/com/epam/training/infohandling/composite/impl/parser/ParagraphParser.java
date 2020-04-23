@@ -1,22 +1,22 @@
 package com.epam.training.infohandling.composite.impl.parser;
 
-import com.epam.training.infohandling.composite.ChainParser;
+import com.epam.training.infohandling.composite.TextParser;
 import com.epam.training.infohandling.composite.TextComponent;
 import com.epam.training.infohandling.composite.impl.TextComposite;
 
 
-public class ParagraphParser implements ChainParser {
+public class ParagraphParser implements TextParser {
     private static final String SENTENCE_REGULAR = "[.!?]+";
-    private ChainParser successor;
+    private TextParser successor;
 
-    public ParagraphParser(ChainParser successor) {
+    public ParagraphParser(TextParser successor) {
         this.successor = successor;
     }
 
     public TextComponent parse(String text) {
         String[] strings = text.split(SENTENCE_REGULAR);
         TextComponent sentences = new TextComposite();
-        ChainParser successor = this.successor;
+        TextParser successor = this.successor;
         for (String sentence : strings) {
             if (successor != null) {
                 TextComponent words = successor.parse(sentence);
