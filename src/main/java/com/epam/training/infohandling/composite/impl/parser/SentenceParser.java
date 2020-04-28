@@ -11,7 +11,8 @@ public class SentenceParser implements ChainParser {
     public SentenceParser(ChainParser successor) {
         this.successor = successor;
     }
-    ChainParser getSuccessor(){
+
+    ChainParser getSuccessor() {
         return successor;
     }
 
@@ -20,7 +21,7 @@ public class SentenceParser implements ChainParser {
         TextComponent words = new TextComposite();
         ChainParser successor = this.successor;
         for (String word : strings) {
-            if(successor!=null) {
+            if (successor != null) {
                 TextComponent letters = successor.parse(word);
                 words.addComponent(letters);
             }
