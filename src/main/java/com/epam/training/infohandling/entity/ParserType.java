@@ -7,11 +7,13 @@ public enum ParserType {
     WORD("//s"),
     LETTER("[a-zA-Zа-яА-Я]"),
     PUNCTUATION("[,.?!:;-]");
-     private String regExp;
-     ParserType(String reg){
-         this.regExp = reg;
-     }
-     public String getRegExp(){
-         return regExp;
-     }
+    private String regExp;
+
+    ParserType(String reg) {
+        this.regExp = reg;
+    }
+
+    public String getRegExp() {
+        return regExp;
+    }
 }

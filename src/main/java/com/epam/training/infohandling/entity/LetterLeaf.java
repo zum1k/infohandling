@@ -2,7 +2,6 @@ package com.epam.training.infohandling.entity;
 
 import com.epam.training.infohandling.composite.ChainParser;
 import com.epam.training.infohandling.composite.TextComponent;
-import com.epam.training.infohandling.entity.ParserType;
 
 import java.util.List;
 
@@ -30,7 +29,8 @@ public class LetterLeaf implements TextComponent, ChainParser {
     public TextComponent parse(String text) {
         return null;
     }
-    public char getValue(){
+
+    public char getValue() {
         return value;
     }
 }

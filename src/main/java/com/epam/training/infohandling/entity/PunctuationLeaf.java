@@ -1,9 +1,8 @@
 package com.epam.training.infohandling.entity;
 
-        import com.epam.training.infohandling.composite.TextComponent;
-        import com.epam.training.infohandling.entity.ParserType;
+import com.epam.training.infohandling.composite.TextComponent;
 
-        import java.util.List;
+import java.util.List;
 
 public class PunctuationLeaf implements TextComponent {
     private ParserType type = ParserType.PUNCTUATION;
