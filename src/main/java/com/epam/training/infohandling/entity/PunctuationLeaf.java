@@ -1,4 +1,4 @@
-package com.epam.training.infohandling.composite.impl;
+package com.epam.training.infohandling.entity;
 
         import com.epam.training.infohandling.composite.TextComponent;
         import com.epam.training.infohandling.entity.ParserType;
@@ -6,14 +6,15 @@ package com.epam.training.infohandling.composite.impl;
         import java.util.List;
 
 public class PunctuationLeaf implements TextComponent {
-    public static final String REGULAR_EXPRESSION = "[.?!;:-\".{3}]";
+    private ParserType type = ParserType.PUNCTUATION;
+    private char value;
 
     @Override
     public ParserType getParserType() {
-        return null;
+        return type;
     }
 
-    private char value;
+
     public PunctuationLeaf(char value) {
         this.value = value;
     }

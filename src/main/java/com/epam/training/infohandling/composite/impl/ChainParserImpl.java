@@ -3,7 +3,9 @@ package com.epam.training.infohandling.composite.impl;
 
 import com.epam.training.infohandling.composite.ChainParser;
 import com.epam.training.infohandling.composite.TextComponent;
+import com.epam.training.infohandling.entity.LetterLeaf;
 import com.epam.training.infohandling.entity.ParserType;
+import com.epam.training.infohandling.entity.PunctuationLeaf;
 
 public class ChainParserImpl implements ChainParser {
     private ParserType parserType;

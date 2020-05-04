@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TextComposite implements TextComponent {
+    private static final String PARAGRAPH_DIVIDER = "\n\t";
     private ParserType type;
     private List<TextComponent> components = new ArrayList<TextComponent>();
-    public ParserType getParserType(){
+
+    public ParserType getParserType() {
         return type;
     }
 
@@ -26,7 +28,7 @@ public class TextComposite implements TextComponent {
         for (TextComponent component : components) {
             switch (component.getParserType()) {
                 case PARAGRAPH:
-                    resultString.append("\n\t");
+                    resultString.append(PARAGRAPH_DIVIDER);
                 case SENTENCE:
                     resultString.append(ParserType.SENTENCE.getRegExp());
                 case WORD:
