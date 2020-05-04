@@ -12,7 +12,7 @@ public class ParagraphParser implements ChainParser {
     public ParagraphParser(ChainParser successor) {
         this.successor = successor;
     }
-   ChainParser getSuccessor(){
+    ChainParser getSuccessor(){
         return successor;
    }
     public TextComponent parse(String text) {

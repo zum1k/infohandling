@@ -5,8 +5,9 @@ package com.epam.training.infohandling.composite.impl;
         import java.util.List;
 
 public class PunctuationLeaf implements TextComponent {
+    public static final String REGULAR_EXPRESSION = "[.?!;:-\".{3}]";
     //dopisat
-    private Character punctuation;
+    private Character value;
     public PunctuationLeaf() {
     }
 

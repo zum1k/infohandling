@@ -6,7 +6,8 @@ import com.epam.training.infohandling.composite.TextComponent;
 import java.util.List;
 
 public class LetterLeaf implements TextComponent, ChainParser {
-    //dopisat
+    public static final String REGULAR_EXPRESSION = "[a-zA-Z][а-яА-Я][-]?";
+
 
     private Character value;
     private TextComponent successor = null;
