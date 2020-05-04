@@ -1,6 +1,7 @@
 package com.epam.training.infohandling.entity;
 
 public enum ParserType {
+    TEXT("//.+"),
     PARAGRAPH("//s{2}"),
     SENTENCE("[.!?]+//s"),
     WORD("//s"),
