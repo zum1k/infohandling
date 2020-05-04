@@ -1,4 +1,4 @@
-package com.epam.training.infohandling.repository.impl.comparator;
+package com.epam.training.infohandling.comparator;
 
 import com.epam.training.infohandling.composite.TextComponent;
 

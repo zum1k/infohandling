@@ -1,7 +1,6 @@
 package com.epam.training.infohandling.repository.impl;
 
 import com.epam.training.infohandling.composite.TextComponent;
-import com.epam.training.infohandling.composite.impl.TextComposite;
 import com.epam.training.infohandling.repository.Repository;
 import com.epam.training.infohandling.repository.Specification;
 import org.apache.logging.log4j.LogManager;
@@ -19,6 +18,7 @@ public class TextRepository implements Repository<TextComponent> {
 
     private TextRepository() {
     }
+
     public static TextRepository getInstance() {
         return INSTANCE;
     }
@@ -31,18 +31,18 @@ public class TextRepository implements Repository<TextComponent> {
 
     @Override
     public void remove(TextComponent composite) {
-        LOGGER.info("Composite removed: "+composite);
+        LOGGER.info("Composite removed: " + composite);
     }
 
     @Override
     public void update(TextComponent composite) {
-        LOGGER.info("Composite updated: "+composite);
+        LOGGER.info("Composite updated: " + composite);
     }
 
     @Override
     public List<TextComponent> sort(Comparator<TextComponent> comparator) {
         components.sort(comparator);
-        LOGGER.info("Components sorted by"+comparator.getClass());
+        LOGGER.info("Components sorted by" + comparator.getClass());
         return components;
     }
 
