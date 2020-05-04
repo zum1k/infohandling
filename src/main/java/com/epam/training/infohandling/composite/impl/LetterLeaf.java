@@ -2,17 +2,17 @@ package com.epam.training.infohandling.composite.impl;
 
 import com.epam.training.infohandling.composite.ChainParser;
 import com.epam.training.infohandling.composite.TextComponent;
+import com.epam.training.infohandling.entity.ParserType;
 
 import java.util.List;
 
 public class LetterLeaf implements TextComponent, ChainParser {
     public static final String REGULAR_EXPRESSION = "[a-zA-Z][а-яА-Я][-]?";
 
-
-    private Character value;
+    private char value;
     private TextComponent successor = null;
 
-    public LetterLeaf(Character value) {
+    public LetterLeaf(char value) {
         this.value = value;
     }
 
@@ -23,10 +23,15 @@ public class LetterLeaf implements TextComponent, ChainParser {
         return null;
     }
 
+    @Override
+    public ParserType getParserType() {
+        return null;
+    }
+
     public TextComponent parse(String text) {
         return null;
     }
-    public Character getValue(){
+    public char getValue(){
         return value;
     }
 }

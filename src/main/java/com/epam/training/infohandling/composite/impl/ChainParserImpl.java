@@ -7,33 +7,29 @@ import com.epam.training.infohandling.entity.ParserType;
 
 public class ChainParserImpl implements ChainParser {
     private ParserType parserType;
-    private ParserType next;
+    private ChainParser next;
 
-    public ChainParserImpl(ParserType next) {
+    public ChainParserImpl(ParserType parserType, ChainParser next) {
+        this.parserType = parserType;
         this.next = next;
     }
 
     public TextComponent parse(String text) {
         TextComposite composite = new TextComposite();
-        if(next == null){
+        if (next == null) {
             char[] letters = text.toCharArray();
-            for(char letter: letters) {
+            for (char letter : letters) {
                 String c = String.valueOf(letter);
-                if(c.matches(ParserType.LETTER.getRegExp())){
-                    System.out.println("It's letter leaf " + c);
+                if (c.matches(ParserType.LETTER.getRegExp())) {
+                    composite.addComponent(new LetterLeaf(letter));
+                } else {
+                    composite.addComponent(new PunctuationLeaf(letter));
                 }
-                else {
-                    System.out.println("It's punctuation leaf "+c);
-                }
-
             }
-
-            composite.addComponent(new LetterLeaf(text));
-        }
-        else{
-            String[] matchers = text.split(textType.getRegExp());
+        } else {
+            String[] matchers = text.split(parserType.getRegExp());
             for (String matcher : matchers) {
-                composite.add(next.event(matcher));
+                composite.addComponent(next.parse(matcher));
             }
         }
         return composite;
