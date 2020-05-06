@@ -8,4 +8,5 @@ public interface TextComponent {
     void addComponent(TextComponent component);
     List<TextComponent> getComponents();
     ParserType getParserType();
+    void removeComponent(TextComponent component);
   }

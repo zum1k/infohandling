@@ -1,6 +1,5 @@
 package com.epam.training.infohandling.composite.impl;
 
-
 import com.epam.training.infohandling.composite.ChainParser;
 import com.epam.training.infohandling.composite.TextComponent;
 import com.epam.training.infohandling.entity.LetterLeaf;
@@ -9,15 +8,19 @@ import com.epam.training.infohandling.entity.PunctuationLeaf;
 
 public class ChainParserImpl implements ChainParser {
     private ParserType parserType;
-    private ChainParser next;
+    private ChainParserImpl next;
 
-    public ChainParserImpl(ParserType parserType, ChainParser next) {
+    public ChainParserImpl(ParserType parserType, ChainParserImpl next) {
         this.parserType = parserType;
         this.next = next;
     }
 
+    public ParserType getParserType() {
+        return parserType;
+    }
+
     public TextComponent parse(String text) {
-        TextComposite composite = new TextComposite();
+        TextComponent composite = new TextComposite(parserType);
         if (next == null) {
             char[] letters = text.toCharArray();
             for (char letter : letters) {
@@ -28,7 +31,8 @@ public class ChainParserImpl implements ChainParser {
                     composite.addComponent(new PunctuationLeaf(letter));
                 }
             }
-        } else {
+        }
+        else {
             String[] matchers = text.split(parserType.getRegExp());
             for (String matcher : matchers) {
                 composite.addComponent(next.parse(matcher));
