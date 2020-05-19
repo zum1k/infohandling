@@ -6,6 +6,7 @@ import com.epam.training.infohandling.entity.ParserType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,21 @@ public class TextAction {
     }
 
     public static Map<TextComponent, String> findSentencesWithLongestWord(TextComponent component) {
+        int wordSize = 1;
+        List<TextComponent> paragraphs = component.getComponents();
+        List<TextComponent> allSentences = new ArrayList<>();
 
+        for(TextComponent paragraph:paragraphs) {
+            List<TextComponent> sentences = paragraph.getComponents();
+            allSentences.addAll(sentences);
+        }
+        for(TextComponent sentence: allSentences){
+            List<TextComponent> words = sentence.getComponents();
+            for(TextComponent word: words){
+                List<TextComponent> letters = word.getComponents();
+
+            }
+        }
     }
 
     public static List<TextComponent> removeSentencesBySize(TextComponent component, int sentenceSize) {
