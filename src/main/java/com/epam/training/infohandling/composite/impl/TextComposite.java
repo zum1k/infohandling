@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TextComposite implements TextComponent {
-    private static final String PARAGRAPH_DIVIDER = "\n\t";
+    private static final String PARAGRAPH_DIVIDER = "  ";
     private ParserType type;
-    private List<TextComponent> components = new ArrayList<TextComponent>();
+    private List<TextComponent> components = new ArrayList<>();
 
-    TextComposite() {
+    public TextComposite() {
     }
 
-    TextComposite(ParserType type) {
+    public TextComposite(ParserType type) {
         this.type = type;
     }
 
@@ -46,14 +46,12 @@ public class TextComposite implements TextComponent {
                     resultString.append(PARAGRAPH_DIVIDER);
                     break;
                 case SENTENCE:
-                    resultString.append(ParserType.SENTENCE.getRegExp());
-                    break;
                 case WORD:
-                    resultString.append(ParserType.WORD.getRegExp());
+                    resultString.append(" ");
                     break;
             }
             resultString.append(component.toString());
         }
-        return resultString.toString();
+        return resultString.toString().trim();
     }
 }

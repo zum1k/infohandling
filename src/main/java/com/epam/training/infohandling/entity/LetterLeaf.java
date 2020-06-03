@@ -2,11 +2,16 @@ package com.epam.training.infohandling.entity;
 
 import com.epam.training.infohandling.composite.ChainParser;
 import com.epam.training.infohandling.composite.TextComponent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.Objects;
 
+
 public class LetterLeaf implements TextComponent, ChainParser {
+    private static final Logger LOGGER = LogManager.getLogger(LetterLeaf.class);
+
     private ParserType type = ParserType.LETTER;
     private TextComponent successor = null;
     private char value;
@@ -28,11 +33,13 @@ public class LetterLeaf implements TextComponent, ChainParser {
 
     @Override
     public void addComponent(TextComponent component) {
+        LOGGER.error("Unsupported operation");
         throw new UnsupportedOperationException();
     }
 
     @Override
     public List<TextComponent> getComponents() {
+        LOGGER.error("Unsupported operation");
         throw new UnsupportedOperationException();
     }
 
@@ -43,6 +50,7 @@ public class LetterLeaf implements TextComponent, ChainParser {
 
     @Override
     public void removeComponent(TextComponent component) {
+        LOGGER.error("Unsupported operation");
         throw new UnsupportedOperationException();
     }
 
@@ -63,7 +71,7 @@ public class LetterLeaf implements TextComponent, ChainParser {
 
     @Override
     public int hashCode() {
-        return Objects.hash(value);
+        return Objects.hash(type, successor, value);
     }
 
     @Override

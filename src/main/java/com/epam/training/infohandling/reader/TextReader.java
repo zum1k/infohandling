@@ -7,8 +7,8 @@ import org.apache.logging.log4j.Logger;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class FileReader {
-    private static final Logger LOGGER = LogManager.getLogger(FileReader.class);
+public class TextReader {
+    private static final Logger LOGGER = LogManager.getLogger(TextReader.class);
 
     public String readStrings(String filePath) throws InvalidPathException {
         try {

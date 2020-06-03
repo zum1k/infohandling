@@ -6,20 +6,23 @@ import com.epam.training.infohandling.entity.LetterLeaf;
 import com.epam.training.infohandling.entity.ParserType;
 import com.epam.training.infohandling.entity.PunctuationLeaf;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ChainParserImpl implements ChainParser {
+
     private ParserType parserType;
     private ChainParserImpl next;
 
-    public ChainParserImpl(ParserType parserType, ChainParserImpl next) {
+    ChainParserImpl(ParserType parserType, ChainParserImpl next) {
         this.parserType = parserType;
         this.next = next;
     }
 
-    public ParserType getParserType() {
-        return parserType;
-    }
-
     public TextComponent parse(String text) {
+        text = text.trim();
         TextComponent composite = new TextComposite(parserType);
         if (next == null) {
             char[] letters = text.toCharArray();
@@ -28,14 +31,28 @@ public class ChainParserImpl implements ChainParser {
                 if (c.matches(ParserType.LETTER.getRegExp())) {
                     composite.addComponent(new LetterLeaf(letter));
                 } else {
-                    composite.addComponent(new PunctuationLeaf(letter));
+                    composite.addComponent(new PunctuationLeaf(String.valueOf(letter)));
                 }
             }
-        }
-        else {
-            String[] matchers = text.split(parserType.getRegExp());
-            for (String matcher : matchers) {
-                composite.addComponent(next.parse(matcher));
+        } else {
+            if (parserType == ParserType.PARAGRAPH) {
+                List<String> punctuations = new ArrayList<>();
+                Matcher m = Pattern.compile(parserType.getRegExp()).matcher(text);
+                while (m.find()) {
+                    punctuations.add(m.group());
+                }
+                String[] matchers = text.split(parserType.getRegExp());
+
+                for (int n = 0; n < matchers.length; n++) {
+                    composite.addComponent(next.parse(matchers[n]));
+                    composite.addComponent(new PunctuationLeaf(punctuations.get(n)));
+                }
+
+            } else {
+                String[] matchers = text.split(parserType.getRegExp());
+                for (String matcher : matchers) {
+                    composite.addComponent(next.parse(matcher));
+                }
             }
         }
         return composite;
